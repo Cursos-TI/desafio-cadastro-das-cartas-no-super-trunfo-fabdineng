@@ -12,14 +12,19 @@ int main() {
     char codcarta1[4], cid1[16];
     int pop1, ptur1;
     float area1, pib1;
+    float den_pop1, pib_percapita1;
 
     char uf2 = 'z';
     char codcarta2[4], cid2[16];
     int pop2, ptur2;
     float area2, pib2;
+    float den_pop2, pib_percapita2;
+
+    int fator_conv = 1000000000; // fator de conversao para bilhao
 
    
-    // ESTADOS: A=RJ, B=CE, C=MG, D=ES, E=SP, F=PI, G=AL, H=BA
+    //ESTADOS: A=RJ, B=CE, C=MG, D=ES, E=SP, F=PI, G=AL, H=BA
+
     //Cadastro da carta 1
 
     printf("ESTADOS: A=RJ, B=CE, C=MG, D=ES, E=SP, F=PI, G=AL, H=BA\n\n");
@@ -28,10 +33,10 @@ int main() {
 
         printf("Informe o Estado: ");
             scanf(" %c", &uf1);
-        printf("Informe o Codigo da Carta: "); 
-            scanf("%s", &codcarta1);
+        printf("Informe o Codigo da Carta: ");
+            scanf("%s", codcarta1);
         printf("Informe a Cidade: ");
-            scanf("%s", &cid1);
+            scanf("%s", cid1);
         printf("Informe a População: ");
             scanf("%d", &pop1);
         printf("Informe a Área: ");
@@ -41,7 +46,12 @@ int main() {
         printf("Informe a Quantidade de Pontos Turisticos: ");
             scanf("%d", &ptur1);
         
-    printf("\n");
+        // calculando a densidade populacional e pib per capita da carta 1
+
+        den_pop1 = pop1 / area1;
+        pib_percapita1 = (pib1 * fator_conv) / pop1;
+        
+printf("\n");
 
     //Cadastro da carta 2
 
@@ -50,9 +60,9 @@ int main() {
         printf("Informe o Estado: ");
             scanf(" %c", &uf2);
         printf("Informe o Codigo da Carta: ");
-            scanf("%s", &codcarta2);
+            scanf("%s", codcarta2);
         printf("Informe a Cidade: ");
-            scanf("%s", &cid2);
+            scanf("%s", cid2);
         printf("Informe a População: ");
             scanf("%d", &pop2);
         printf("Informe a Área: ");
@@ -62,7 +72,13 @@ int main() {
         printf("Informe a Quantidade de Pontos Turisticos: ");
             scanf("%d", &ptur2);
 
+        // calculando a densidade populacional e pib per capita da carta 2
+
+        den_pop2 = pop2 / area2;
+        pib_percapita2 = (pib2 * fator_conv) / pop2;
+
 printf("\n\n");
+
 // Exibe carta 1
 
     printf("***** Carta 1 *****\n");
@@ -71,9 +87,12 @@ printf("\n\n");
          printf("Código da Carta: %s\n", codcarta1);
          printf("Cidade: %s\n", cid1);
          printf("População: %d\n", pop1);
-         printf("Área: %.2f\n", area1);
-         printf("PIB: %.2f\n", pib1);
+         printf("Área: %.2f Km2\n", area1);
+         printf("PIB: %.2f Bilhões\n", pib1);
          printf("Pontos Turisticos: %d\n", ptur1);
+         printf("Densidade Populacional: %.2f Hab/Km2\n", den_pop1);
+         printf("PIB Per Capita: %.2f R$/Hab.\n", pib_percapita1);
+
 
 printf("\n");
 // Exibe carta 2
@@ -84,9 +103,11 @@ printf("\n");
          printf("Código da Carta: %s\n", codcarta2);
          printf("Cidade: %s\n", cid2);
          printf("População: %d\n", pop2);
-         printf("Área: %.2f\n", area2);
-         printf("PIB: %.2f\n", pib2);
+         printf("Área: %.2f Km2\n", area2);
+         printf("PIB: %.2f Bilhões\n", pib2);
          printf("Pontos Turisticos: %d\n", ptur2);
+         printf("Densidade Populacional: %.2f Hab/Km2\n", den_pop2);
+         printf("PIB Per Capita: %.2f R$/Hab.\n", pib_percapita2);
 
 
 
